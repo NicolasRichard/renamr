@@ -58,6 +58,7 @@ def parse_arguments():
     return args
 
 def renamr(directory, base_name, ratio, captions, date):
+    """Main function of the program"""
     i = 1
     path = os.path.join(os.path.dirname(__file__), directory)
     for file in os.listdir(path):
@@ -76,7 +77,7 @@ def renamr(directory, base_name, ratio, captions, date):
         draw_text(x, y + 20, img, draw, font, '%s-%03i' % (base_name, i))
         img.save('%s-%03i.jpg' % (os.path.join(path, base_name), i))
         i = i + 1
-        #os.remove(os.path.join(path, file))
+        os.remove(os.path.join(path, file))
 
 if __name__=='__main__':
     args = parse_arguments()
